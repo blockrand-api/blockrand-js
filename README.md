@@ -1,6 +1,6 @@
 # blockrand.js
 
-Open Source SDK to generate Provably fair, time-locked randomness using double-blind entropy and Drand.
+Javascript SDK to generate Provably fair, time-locked randomness using double-blind entropy and Drand using Blockrand API.
 
 ### Free Forever & Developer‑Friendly
 Blockrand is designed to grow with you — without blocking you behind paywalls.
