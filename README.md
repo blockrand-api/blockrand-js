@@ -21,6 +21,31 @@ Randomness is generated using a strict **commit → settle → reveal** protocol
 This JavaScript SDK provides a minimal, copy-paste interface for interacting with the Blockrand backend while preserving full cryptographic verifiability.
 
 ---
+```mermaid
+sequenceDiagram
+    autonumber
+    participant P as Player (SDK)
+    participant S as Blockrand API
+    participant D as Drand Network
+
+    Note over P,S: 1. THE COMMITMENT (Time-Locked)
+    P->>S: POST /commit (Player Hash)
+    S->>S: Generate & Store Server Secret Hash
+    S-->>P: Return Round ID + Target Drand Round
+
+    Note over P,S: 2. THE WAIT (Decentralized Entropy)
+    D-->>S: Publish Future Beacon (Randomness)
+
+    Note over P,S: 3. THE REVEAL (Double-Blind Result)
+    P->>S: POST /reveal (Player Secret)
+    S->>S: Verify Player Hash == Secret
+    S->>S: Mix (Player + Server + Drand)
+    S-->>P: Final Deterministic Seed & Result
+    
+    Note over P: SDK Verifies Math Locally
+```
+----
+
 
 ### Double-blind entropy
 
@@ -62,6 +87,7 @@ Anyone can independently recompute this value and verify:
 - Final outcome derivation
 
 No trust in Blockrand is required.
+
 
 ---
 
@@ -174,5 +200,5 @@ echo -n "p_secret:s_secret:d_sig" | shasum -a 256
 
 - The audit url will give you the drand (public entropy) seed details. 
 - The commit-reveal time will show that at the time of commit drand was not available and player and servers had each other's hashes but not the keys.
-- All the random numbers generated can be determisnitically regenerated again using the same Seed. They can be verified independently by pure Mathematics
+- All the random numbers generated can be determinisitically regenerated again using the same Seed. They can be verified independently by pure Mathematics
 
