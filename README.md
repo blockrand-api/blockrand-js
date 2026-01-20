@@ -2,12 +2,13 @@
 
 Open Source SDK to generate Provably fair, time-locked randomness using double-blind entropy and Drand.
 
+### Free Forever & Developer‑Friendly
 Blockrand is designed to grow with you — without blocking you behind paywalls.
 
-- **Free Forever:** Up to 100 active players/month on the core API — no credit card required - unlimited API Usage for each player.
-- **Open‑Source SDKs:** All client libraries (including this JavaScript SDK) are open‑source with transparent math.
-- **Fully Verifiable:** Every random result is auditable by players using commit‑reveal proofs and public Drand entropy.
-- **No Client Crypto Burden:** The SDK handles timing and cryptographic coordination so you don’t have to.
+- 🆓 **Free Forever:** Up to 100 active players per month — no credit card.  
+- 📦 **Open‑Source SDKs:** Transparent math, full code available.  
+- 🔍 **Fully Verifiable:** Every result includes proof data for independent replay/verification.  
+- 🎯 **Easy Integration:** Backend, web, or game clients with minimal setup.
 
 ---
 
