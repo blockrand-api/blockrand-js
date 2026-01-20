@@ -2,6 +2,13 @@
 
 Open Source SDK to generate Provably fair, time-locked randomness using double-blind entropy and Drand.
 
+Blockrand is designed to grow with you — without blocking you behind paywalls.
+
+- **Free Forever:** Up to 100 active players/month on the core API — no credit card required - unlimited API Usage for each player.
+- **Open‑Source SDKs:** All client libraries (including this JavaScript SDK) are open‑source with transparent math.
+- **Fully Verifiable:** Every random result is auditable by players using commit‑reveal proofs and public Drand entropy.
+- **No Client Crypto Burden:** The SDK handles timing and cryptographic coordination so you don’t have to.
+
 ---
 
 ## Overview
@@ -168,11 +175,3 @@ echo -n "p_secret:s_secret:d_sig" | shasum -a 256
 - The commit-reveal time will show that at the time of commit drand was not available and player and servers had each other's hashes but not the keys.
 - All the random numbers generated can be determisnitically regenerated again using the same Seed. They can be verified independently by pure Mathematics
 
-## Blockrand API Usage
-
-Blockrand is designed to grow with you — without blocking you behind paywalls.
-
-- **Free Forever:** Up to 100 active players/month on the core API — no credit card required - unlimited API Usage for each player.
-- **Open‑Source SDKs:** All client libraries (including this JavaScript SDK) are open‑source with transparent math.
-- **Fully Verifiable:** Every random result is auditable by players using commit‑reveal proofs and public Drand entropy.
-- **No Client Crypto Burden:** The SDK handles timing and cryptographic coordination so you don’t have to.
