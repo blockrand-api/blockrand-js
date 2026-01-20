@@ -100,7 +100,6 @@ br.getRandom(playerId, delaySeconds, (res) => {
     }
 
     console.log("Random Result (1-100):", res.fullResult.d100);
-    console.log("Audit URL:", `https://api.blockrand.net/verify/${res.fullResult.round_id}`);
 });
 </pre>
 
