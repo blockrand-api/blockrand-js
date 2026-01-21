@@ -1,3 +1,9 @@
+---
+title: "Modulo Bias: Why Most Random Numbers in Games Are Slightly Wrong"
+description: "Learn what modulo bias is, why it makes many game and casino random numbers unfair, and how Blockrand eliminates it using mathematically correct methods."
+---
+
+
 # Modulo Bias: Why Most Random Numbers in Games Are Slightly Wrong
 
 This document explains a subtle but critical flaw in many game, casino, and simulation systems: **modulo bias**. It explains why it happens, how it breaks fairness, and how to eliminate it correctly.
