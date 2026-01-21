@@ -2,4 +2,4 @@ Randomness matters more than most people realize — especially in gaming, lotte
 
 ## Core Concepts
 - [What Is Verifiable Randomness?](randomness/what-is-verifiable-randomness.md)
-- [What Is Modulo Bias?](randomness/modulo-bias.md)
+- [What Is Modulo Bias?](https://blockrand-api.github.io/blockrand-js/randomness/modulo-bias.html)
