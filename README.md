@@ -137,10 +137,13 @@ br.getRandom(playerId, delaySeconds, (res) => {
 });
 </pre>
 
-If you want to see the big picture and behind the scenes of how everything is being delivered, you can run the test.js with the API Key and it will produce a result like this :
+If you want to see the big picture and behind the scenes of how everything is being delivered, you can download blockrand.js and run the test.js with the API Key and it will produce a result like this :
+<pre>
+    node test.js
+</pre>
 
 <pre>
-  🚀 Running Blockrand SDK v1: Double-Blind Entropy...
+🚀 Running Blockrand SDK v1: Double-Blind Entropy...
 [SDK] Commitment successful. Waiting 4.8s for reveal...
 
 ==================================================
