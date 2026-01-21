@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Blockrand Browser Test</title>
+</head>
+<body>
+    <h2>🎲 Blockrand Browser Test</h2>
+    <p id="out">Waiting…</p>
+
+    <script src="https://cdn.jsdelivr.net/gh/blockrand-api/blockrand-js@latest/blockrand.js"></script>
+
+    <script>
+        const API_KEY = "YOUR_API_KEY";
+        const br = new Blockrand(API_KEY);
+
+        br.getRandom("browser_player_1", 6, (res) => {
+            document.getElementById("out").textContent =
+                JSON.stringify(res.fullResult, null, 2);
+        });
+    </script>
+</body>
+</html>
