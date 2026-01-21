@@ -1,3 +1,7 @@
+---
+title: "What Is Verifiable Randomness? | Blockrand-js"
+description: "Learn what verifiable randomness is, why most random numbers are not auditable, and how systems like Blockrand provide unbiased, reproducible, and trustless random outcomes."
+---
 # What Is Verifiable Randomness?
 
 Randomness is used everywhere: games, lotteries, simulations, load-balancers,
