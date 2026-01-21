@@ -11,100 +11,120 @@
  * * @see {@link https://blockrand.net}
  * @see {@link https://github.com/blockrand-api/blockrand-js} For the quick start.
  */
-
-const crypto = require('crypto');
-
-class Blockrand {
-    constructor(apiKey) {
-        this.apiKey = apiKey;
-        this.baseUrl = "https://api.blockrand.net/api/v1";
+(function (root, factory) {
+    if (typeof module === "object" && module.exports) {
+        // Node.js
+        module.exports = factory(require("crypto"));
+    } else {
+        // Browser
+        root.Blockrand = factory(null);
     }
+}(typeof self !== "undefined" ? self : this, function (nodeCrypto) {
 
-    async getRandom(playerId, delaySec, callback) {
-        try {
-            // 1. Generate local entropy (Double-Blind: Server never sees this until reveal)
-            const playerSecret = crypto.randomBytes(16).toString('hex');
-            
-            // 2. Hash the secret for the commitment
-            const playerHash = crypto.createHash('sha256').update(playerSecret).digest('hex');
+    const isNode = typeof window === "undefined";
 
-            // 3. Commit the hash
-            const commitRes = await fetch(`${this.baseUrl}/commit`, {
-                method: 'POST',
-                headers: { 
-                    'X-API-KEY': this.apiKey,
-                    'Content-Type': 'application/json' 
-                },
-                body: JSON.stringify({
-                    player_id: playerId,
-                    player_hash: playerHash,
-                    delay_sec: Math.max(delaySec, 6)
-                })
-            });
+    /* ------------------ Crypto helpers ------------------ */
 
-            const commitData = await commitRes.json();
-            if (commitRes.status !== 200) throw new Error(commitData.error || "Commit failed");
-
-            // 4. Calculate wait time based on the target Drand round
-            const waitMs = (commitData.reveal_at * 1000) - Date.now() + 1500;
-            console.log(`[SDK] Commitment successful. Waiting ${(waitMs/1000).toFixed(1)}s for reveal...`);
-
-            setTimeout(() => {
-                this._pollForReveal(playerId, playerSecret, callback);
-            }, Math.max(waitMs, 0));
-
-        } catch (err) {
-            callback({ error: err.message });
+    async function randomHex(bytes) {
+        if (isNode) {
+            return nodeCrypto.randomBytes(bytes).toString("hex");
         }
+        const arr = new Uint8Array(bytes);
+        crypto.getRandomValues(arr);
+        return Array.from(arr).map(b => b.toString(16).padStart(2, "0")).join("");
     }
 
-    async getHistory(playerId, callback) {
-        try {
-            const res = await fetch(`${this.baseUrl}/history?player_id=${playerId}`, {
-                method: 'GET',
-                headers: { 'X-API-KEY': this.apiKey }
-            });
-            const data = await res.json();
-            callback(data.history || []);
-        } catch (err) {
-            callback({ error: err.message });
+    async function sha256Hex(input) {
+        if (isNode) {
+            return nodeCrypto.createHash("sha256").update(input).digest("hex");
         }
+        const enc = new TextEncoder().encode(input);
+        const hash = await crypto.subtle.digest("SHA-256", enc);
+        return Array.from(new Uint8Array(hash))
+            .map(b => b.toString(16).padStart(2, "0"))
+            .join("");
     }
 
-    async _pollForReveal(playerId, playerSecret, callback) {
-        try {
-            const revealRes = await fetch(`${this.baseUrl}/reveal`, {
-                method: 'POST',
-                headers: { 
-                    'X-API-KEY': this.apiKey,
-                    'Content-Type': 'application/json' 
-                },
-                body: JSON.stringify({
-                    player_id: playerId,
-                    player_secret: playerSecret 
-                })
-            });
+    /* ------------------ SDK ------------------ */
 
-            const data = await revealRes.json();
+    class Blockrand {
+        constructor(apiKey) {
+            this.apiKey = apiKey;
+            this.baseUrl = "https://api.blockrand.net/api/v1";
+        }
 
-            if (revealRes.status === 200 && data.status === "ready") {
-                callback({
-                    player_secret: playerSecret,
-                    fullResult: data,
-                    verified: data.verified || false,
-                    error: null
+        async getRandom(playerId, delaySec, callback) {
+            try {
+                // 1. Player secret (never sent until reveal)
+                const playerSecret = await randomHex(16);
+
+                // 2. Commitment hash
+                const playerHash = await sha256Hex(playerSecret);
+
+                // 3. Commit
+                const commitRes = await fetch(`${this.baseUrl}/commit`, {
+                    method: "POST",
+                    headers: {
+                        "X-API-KEY": this.apiKey,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        player_id: playerId,
+                        player_hash: playerHash,
+                        delay_sec: Math.max(delaySec, 6)
+                    })
                 });
-            } else if (revealRes.status === 425 || (data && data.status !== "ready")) {
-                // 425 is "Too Early" - Drand hasn't published yet
-                console.log("[SDK] Result not ready yet, retrying...");
-                setTimeout(() => this._pollForReveal(playerId, playerSecret, callback), 1500);
-            } else {
-                throw new Error(data.error || "Reveal failed");
+
+                const commitData = await commitRes.json();
+                if (!commitRes.ok) {
+                    throw new Error(commitData.error || "Commit failed");
+                }
+
+                const waitMs = (commitData.reveal_at * 1000) - Date.now() + 1500;
+                console.log(`[Blockrand] Waiting ${(waitMs / 1000).toFixed(1)}s for reveal…`);
+
+                setTimeout(() => {
+                    this._pollForReveal(playerId, playerSecret, callback);
+                }, Math.max(waitMs, 0));
+
+            } catch (err) {
+                callback({ error: err.message });
             }
-        } catch (err) {
-            callback({ error: err.message });
+        }
+
+        async _pollForReveal(playerId, playerSecret, callback) {
+            try {
+                const res = await fetch(`${this.baseUrl}/reveal`, {
+                    method: "POST",
+                    headers: {
+                        "X-API-KEY": this.apiKey,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        player_id: playerId,
+                        player_secret: playerSecret
+                    })
+                });
+
+                const data = await res.json();
+
+                if (res.ok && data.status === "ready") {
+                    callback({
+                        player_secret: playerSecret,
+                        fullResult: data,
+                        verified: data.verified || false,
+                        error: null
+                    });
+                } else if (res.status === 425 || data.status !== "ready") {
+                    setTimeout(() => this._pollForReveal(playerId, playerSecret, callback), 1500);
+                } else {
+                    throw new Error(data.error || "Reveal failed");
+                }
+            } catch (err) {
+                callback({ error: err.message });
+            }
         }
     }
-}
 
-module.exports = Blockrand;
+    return Blockrand;
+}));
