@@ -19,7 +19,8 @@
         // Browser
         root.Blockrand = factory(null);
     }
-}(typeof self !== "undefined" ? self : this, function (nodeCrypto) {
+}(typeof globalThis !== "undefined" ? globalThis : this, function (nodeCrypto) {
+
 
     const isNode = typeof window === "undefined";
 
