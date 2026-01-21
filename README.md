@@ -191,7 +191,7 @@ If you want to see the big picture and behind the scenes of how everything is be
 ==================================================
 </pre>
 
-If you want to test on an html file simply add the script tag with blockrand.js and test it with your API-KEY
+If you want to test on an html file simply add the script tag with blockrand.js and test it with your API-KEY. See the test.html provided.
 
 <pre>
 <script src="https://cdn.jsdelivr.net/gh/blockrand-api/blockrand-js@latest/blockrand.js"></script>
