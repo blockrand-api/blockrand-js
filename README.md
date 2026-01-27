@@ -143,52 +143,54 @@ If you want to see the big picture and behind the scenes of how everything is be
 </pre>
 
 <pre>
+
 🚀 Running Blockrand SDK v1: Double-Blind Entropy...
-[SDK] Commitment successful. Waiting 4.8s for reveal...
+[Blockrand] Waiting 5.5s for reveal…
 
 ==================================================
              BLOCKRAND RESULTS TERMINAL             
 ==================================================
 
 1️⃣  THE TRUST WINDOW (Provably Fair)
-   Committed At : 2026-01-20T03:24:44.506877Z (Player input locked)
-   Settled At   : 2026-01-20T03:24:49.10323Z (Randomness released)
+   Committed At : 2026-01-27T05:48:25.741984Z (Player input locked)
+   Settled At   : 2026-01-27T05:48:31.291479Z (Randomness released)
    Verification : ✅ PASSED
    Note: Randomness was generated AFTER your commitment.
 
 🛡️  THE DOUBLE-BLIND ENTROPY (Anti-Cheating)
-   1. Player Blind: Player sent this Hash but kept the secret : a0647bfb59679d0850a94681c6c5b2d972cf396a9f46fdf5cda59ee18e1f7fa4
-   2. Server Blind: Server sent this Hash but kept the secret : 8fd0ec3b71b35f4e5fe376d89a0e5bc5e1a96e1c7e67a778e05792626a6f3fe8
+   1. Player Blind: Player sent this Hash but kept the secret : 10a5882facf4f7860f7f2c310a3e1d8acc6e85d431b734b784041d97fd56fcce
+   2. Server Blind: Server sent this Hash but kept the secret : d13f7eddacbe6838ec4de4f0344bf9042b5509f5fc93a2e302225213fcd2a195
    3. Drand Blind: The dRand Beacon was generated AFTER you committed.
 
    Result: Total Neutrality. Player cannot cheat. The Server cannot cheat.
 
 2️⃣  THE CRYPTOGRAPHIC MIX (The Formula)
    Formula      : Hash(player_secret + ':' + server_secret + ':' + drand_signature)
-   Player Secret: fa5940246be8444cb1b6c565e9aed960 (Sent during Reveal)
-   Server Secret: 744a89cf6511cfc6d0eaccebf228e411 (Released on Reveal)
-   Drand Sig    : 922f7e7eb0ad50ab03f5d98c763ef88ae4f25b78beece3267b931d20b4585177f013b7e08e47d39c2543125582ef16a4 (External Entropy)
-   Final Seed   : 4bbf8d26253a2fd72bff4e3eb09db2d6d543ce4bcfe355a24279fc38694d6655
+   Player Secret: 4ff22997cf92c988a03671b30e328609 (Sent during Reveal)
+   Server Secret: 59ac68b9edb32cd2e803db14347078ae (Released on Reveal)
+   Drand Sig    : 8c66e08556093ef6783306c080caadb0c4cf430d1cceda64a947db99322fe9faa5efd24f25c44728e1f7700337c1e71b (External Entropy)
+   Final Seed   : 1f01a0debbfa763ce978d799d652e0602158babd7023c5ec7de21cc06221615c
    Explanation  : All secrets are now public. Any player can 
                   independently re-run the hash math to verify 
                   the seed matches the outcomes perfectly.
 
 3️⃣  UNIFORM DERIVATION (How numbers are born)
-   - D6 Result: 2
+   - D6 Result: 6
    - Logic    : We use 'Rejection Sampling'. If the seed bits
                 create a bias, they are discarded and re-hashed.
                 This ensures a perfect 16.66% chance for every face.
 
 4️⃣  RESULTS SUMMARY
    🪙  Coin  : HEADS
-   🎯  D100  : 66
-   📈  Float : 0.53007666
-   🃏  Cards : 21, 2, 13, 11, 18...
+   🎯  D100  : 25
+   📈  Float : 0.15890753
+   🃏  Cards : 49, 39, 7, 21, 38...
 
 5️⃣  PUBLIC AUDIT
    Verify the beacon here:
-   🔗 https://drand.cloudflare.com/52db9ba70e0cc0f6eaf7803dd07447a1f5477735fd3f661792ba94600c84e971/public/25358708
+   🔗 https://drand.cloudflare.com/52db9ba70e0cc0f6eaf7803dd07447a1f5477735fd3f661792ba94600c84e971/public/25563182
 ==================================================
+
 </pre>
 
 If you want to test on an html file simply add the script tag with blockrand.js and test it with your API-KEY. See the test.html provided.
