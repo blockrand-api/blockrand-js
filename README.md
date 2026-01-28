@@ -91,8 +91,8 @@ No trust in Blockrand is required.
 
 ---
 
-## Get Your API Key
-
+## Get Your API Key – Start in Under 1 minute
+Run a single curl, and begin generating provably fair randomness.
 Blockrand uses Deterministic API Keys. Your key is generated based on your email and a secret hash, allowing you to recover your key mathematically if lost.
 
 1. **Generate your Secret Hash**
