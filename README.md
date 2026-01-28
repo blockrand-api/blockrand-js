@@ -93,7 +93,8 @@ No trust in Blockrand is required.
 
 ## Get Your API Key 
 
-**Start in Under 1 minute**
+**Start in Under 1 minute.**
+
 Run a single curl, and begin generating provably fair randomness.
 Blockrand uses Deterministic API Keys. Your key is generated based on your email and a secret hash, allowing you to recover your key mathematically if lost.
 
@@ -141,7 +142,7 @@ br.getRandom(playerId, delaySeconds, (res) => {
 
 If you want to see the big picture and behind the scenes of how everything is being delivered, you can download blockrand.js and run the test.js with the API Key and it will produce a result like this :
 <pre>
-    node test.js
+node test.js
 </pre>
 
 <pre>
