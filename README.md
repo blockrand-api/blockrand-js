@@ -31,8 +31,9 @@ using a time-locked commit → reveal protocol with public Drand entropy.
 
 👉 [Get API Key (free, takes < 60 seconds)](#get-your-api-key)
 
-⭐ Not ready yet? **Star the Repo** (top right) and come back when you need provable fairness.
 
+⭐ Not ready yet? **Star the Repo** (top right) and come back when you need provable fairness.
+👉 https://github.com/blockrand-api/blockrand-js
 
 **Blockrand** is a provably fair randomness system based on **double-blind entropy** and **time-locked commitments**.
 
