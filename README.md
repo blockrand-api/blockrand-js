@@ -14,6 +14,26 @@ Blockrand is designed to grow with you — without blocking you behind paywalls.
 
 ## Overview
 
+## ⚡ Verifiable Randomness for JavaScript Games
+
+Blockrand lets you prove your game’s randomness wasn’t rigged —
+using a time-locked commit → reveal protocol with public Drand entropy.
+
+✅ No blockchain
+✅ No tokens
+✅ Free forever tier
+
+### 🚀 Try it in 60 seconds
+
+1. Get a free API key
+2. Run one curl command
+3. Verify the randomness locally
+
+👉 [Get API Key (free, takes < 60 seconds)](#get-your-api-key)
+
+⭐ Not ready yet? [Star the repo](https://github.com/blockrand-api/blockrand-js) and come back when you need provable fairness.
+
+
 **Blockrand** is a provably fair randomness system based on **double-blind entropy** and **time-locked commitments**.
 
 Randomness is generated using a strict **commit → settle → reveal** protocol where **neither the client nor the server can influence the outcome after commitment**, and the final entropy **does not exist at commit time**.
