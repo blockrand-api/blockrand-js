@@ -20,8 +20,11 @@ Blockrand lets you prove your game’s randomness wasn’t rigged —
 using a time-locked commit → reveal protocol with public Drand entropy.
 
 ✅ No blockchain
+
 ✅ No tokens
+
 ✅ Free forever tier
+
 
 ### 🚀 Try it in 60 seconds
 
@@ -33,6 +36,7 @@ using a time-locked commit → reveal protocol with public Drand entropy.
 
 
 ⭐ Not ready yet? **Star the Repo** (top right) and come back when you need provable fairness.
+
 👉 https://github.com/blockrand-api/blockrand-js
 
 **Blockrand** is a provably fair randomness system based on **double-blind entropy** and **time-locked commitments**.
