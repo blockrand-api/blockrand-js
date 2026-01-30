@@ -28,7 +28,7 @@ using a time-locked commit → reveal protocol with public Drand entropy.
 
 ### 🚀 Try it in 60 seconds
 
-1. [Get API Key (free, takes < 60 seconds)](#get-your-api-key)
+1. [Get API Key (free)](#get-your-api-key)
 2. Run one curl command
 3. Verify the randomness locally
 
