@@ -7,3 +7,4 @@ Randomness matters more than most people realize — especially in gaming, lotte
 - [Why One Seed Is Not Enough?](https://blockrand-api.github.io/blockrand-js/randomness/Deterministic_Counters_and_Canonica_Randomness.html)
 - [Why Future Public Entropy Matters ?](https://blockrand-api.github.io/blockrand-js/randomness/why-future-public-entropy-matters.html)
 - [How provably fair systems fail in practice ?](https://blockrand-api.github.io/blockrand-js/randomness/how-provably-fair-systems-fail-in-practice.html)
+- [How randomness audits work ?](https://blockrand-api.github.io/blockrand-js/randomness/how-randomness-audits-work.html)
