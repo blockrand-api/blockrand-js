@@ -9,4 +9,4 @@ Randomness matters more than most people realize — especially in gaming, lotte
 - [How provably fair systems fail in practice ?](https://blockrand-api.github.io/blockrand-js/randomness/how-provably-fair-systems-fail-in-practice.html)
 - [How randomness audits work ?](https://blockrand-api.github.io/blockrand-js/randomness/how-randomness-audits-work.html)
 - [Why traditional rns apis are not auditable ?](https://blockrand-api.github.io/blockrand-js/randomness/why-traditional-rng-apis-are-not-auditable.html)
-
+- [Why determinism is not the enemy of fairness ?](https://blockrand-api.github.io/blockrand-js/randomness/determinism-is-not-the-enemy-of-fairness.html)
