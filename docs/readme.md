@@ -17,3 +17,5 @@ Randomness matters more than most people realize — especially in gaming, lotte
 - [What is Double-Blind Entropy Model ?](https://blockrand-api.github.io/blockrand-js/theory/double-blind-entropy-model.html)
 - [Why Should There be Delay In Randomness ?](https://blockrand-api.github.io/blockrand-js/theory/timing-and-delay-in-randomness.html)
 - [Why Precommitment Matters ?](https://blockrand-api.github.io/blockrand-js/theory/why-precommitment-matters.html)
+- [How To Build Verifyable Randomness Without Blockchain ?](https://blockrand-api.github.io/blockrand-js/theory/randomness-without-blockchain-state.html)
+
