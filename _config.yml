@@ -1,0 +1,5 @@
+url: https://blockrand-api.github.io
+baseurl: /blockrand-js
+title: "Blockrand Documentation"
+description: "Verifiable Randomness Systems"
+theme: jekyll-theme-architect
