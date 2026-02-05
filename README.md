@@ -112,7 +112,9 @@ Anyone can independently recompute this value and verify:
 - Drand round correctness
 - Final outcome derivation
 
-No trust in Blockrand is required.
+**No trust in Blockrand is required.** 
+
+Checkout a **[DEMO](https://blockrand.net/demo.html)**
 
 
 ---
