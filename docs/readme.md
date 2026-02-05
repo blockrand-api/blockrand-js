@@ -6,7 +6,12 @@ Randomness matters more than most people realize — especially in gaming, lotte
 - [What Is Modulo Bias?](https://blockrand-api.github.io/blockrand-js/randomness/modulo-bias.html)
 - [Why One Seed Is Not Enough?](https://blockrand-api.github.io/blockrand-js/randomness/Deterministic_Counters_and_Canonica_Randomness.html)
 - [Why Future Public Entropy Matters ?](https://blockrand-api.github.io/blockrand-js/randomness/why-future-public-entropy-matters.html)
-- [How provably fair systems fail in practice ?](https://blockrand-api.github.io/blockrand-js/randomness/how-provably-fair-systems-fail-in-practice.html)
-- [How randomness audits work ?](https://blockrand-api.github.io/blockrand-js/randomness/how-randomness-audits-work.html)
-- [Why traditional rns apis are not auditable ?](https://blockrand-api.github.io/blockrand-js/randomness/why-traditional-rng-apis-are-not-auditable.html)
-- [Why determinism is not the enemy of fairness ?](https://blockrand-api.github.io/blockrand-js/randomness/determinism-is-not-the-enemy-of-fairness.html)
+- [How Provably Fair Systems Fail in Practice ?](https://blockrand-api.github.io/blockrand-js/randomness/how-provably-fair-systems-fail-in-practice.html)
+- [How Randomness Audits Work ?](https://blockrand-api.github.io/blockrand-js/randomness/how-randomness-audits-work.html)
+- [Why Traditional Rng Apis Are Not Auditable ?](https://blockrand-api.github.io/blockrand-js/randomness/why-traditional-rng-apis-are-not-auditable.html)
+- [Why Determinism Is Not The Enemy of Fairness ?](https://blockrand-api.github.io/blockrand-js/randomness/determinism-is-not-the-enemy-of-fairness.html)
+
+
+## Theory
+- [Why Single Party RNG Fails ?](https://blockrand-api.github.io/blockrand-js/theory/why-single-party-rng-fails.html)
+- [What is Double-Blind Entropy Model ? Single Party RNG Fails ?](https://blockrand-api.github.io/blockrand-js/theory/double-blind-entropy-model.html)
