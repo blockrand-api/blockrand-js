@@ -14,4 +14,6 @@ Randomness matters more than most people realize — especially in gaming, lotte
 
 ## Theory
 - [Why Single Party RNG Fails ?](https://blockrand-api.github.io/blockrand-js/theory/why-single-party-rng-fails.html)
-- [What is Double-Blind Entropy Model ? Single Party RNG Fails ?](https://blockrand-api.github.io/blockrand-js/theory/double-blind-entropy-model.html)
+- [What is Double-Blind Entropy Model ?](https://blockrand-api.github.io/blockrand-js/theory/double-blind-entropy-model.html)
+- [Why Should There be Delay In Randomness ?](https://blockrand-api.github.io/blockrand-js/theory/timing-and-delay-in-randomness.html)
+- [Why Precommitment Matters ?](https://blockrand-api.github.io/blockrand-js/theory/why-precommitment-matters.html)
