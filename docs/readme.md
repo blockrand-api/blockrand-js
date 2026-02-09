@@ -24,3 +24,4 @@ Randomness matters more than most people realize — especially in gaming, lotte
 ## Algorithms
 - [Fair Dice](https://blockrand-api.github.io/blockrand-js/algorithms/unbiased-dice-roll.html)
 - [Unbiased Coint Toss](https://blockrand-api.github.io/blockrand-js/algorithms/unbiased-coin-toss.html)
+- [Fair Shuffle](https://blockrand-api.github.io/blockrand-js/algorithms/fair-shuffle.html)
