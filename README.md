@@ -114,7 +114,7 @@ Anyone can independently recompute this value and verify:
 
 **No trust in Blockrand is required.** 
 
-Checkout a **[DEMO](https://blockrand.net/demo.html)**
+Check it out **[LIVE](https://blockrand.net/live.html)**
 
 
 ---
