@@ -20,3 +20,6 @@ Randomness matters more than most people realize — especially in gaming, lotte
 - [How To Build Verifyable Randomness Without Blockchain ?](https://blockrand-api.github.io/blockrand-js/theory/randomness-without-blockchain-state.html)
 - [Understanding Trade-offs : Verifiable Randomness vs Oracles ?](https://blockrand-api.github.io/blockrand-js/theory/verifiable-randomness-vs-oracles.html)
 
+
+## Algorithms
+- [Fair Dice](https://blockrand-api.github.io/blockrand-js/algorithms/unbiased-dice-roll.html)
