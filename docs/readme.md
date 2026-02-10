@@ -29,4 +29,4 @@ Randomness matters more than most people realize — especially in gaming, lotte
 - [Random Sampling Without Replacement](https://blockrand-api.github.io/blockrand-js/algorithms/random-sampling-without-replacement.html)
 - [Multi Winner Draws With DEterministic Ordering](https://blockrand-api.github.io/blockrand-js/algorithms/multi-winner-draws-with-deterministic-ordering.html)
 - [Progressive Probability Curves (Pity Systems)](https://blockrand-api.github.io/blockrand-js/algorithms/progressive-probability-curves-pity-systems.html)
-
+- [Secure Range Mapping Large Outcome Spaces](https://blockrand-api.github.io/blockrand-js/algorithms/secure-range-mapping-large-outcome-spaces.html)
