@@ -3,7 +3,7 @@
 Javascript SDK to generate Provably fair, time-locked randomness using double-blind entropy and Drand using Blockrand API.
 
 ### Free Forever & Developer‑Friendly
-Blockrand is designed to grow with you — without blocking you behind paywalls.
+[BlockRand](https://blockrand.net) is designed to grow with you — without blocking you behind paywalls.
 
 - 🆓 **Free Forever:** Up to 100 active players per month — no credit card.  
 - 📦 **Open‑Source SDKs:** Transparent math, full code available.  
