@@ -30,3 +30,9 @@ Randomness matters more than most people realize — especially in gaming, lotte
 - [Multi Winner Draws With DEterministic Ordering](https://blockrand-api.github.io/blockrand-js/algorithms/multi-winner-draws-with-deterministic-ordering.html)
 - [Progressive Probability Curves (Pity Systems)](https://blockrand-api.github.io/blockrand-js/algorithms/progressive-probability-curves-pity-systems.html)
 - [Secure Range Mapping Large Outcome Spaces](https://blockrand-api.github.io/blockrand-js/algorithms/secure-range-mapping-large-outcome-spaces.html)
+
+
+## Verification
+- [What Provably Fair Actually Means ?](https://blockrand-api.github.io/blockrand-js/verification/what-provably-fair-actually-means.html)
+- [Deterministic Replay Verification](https://blockrand-api.github.io/blockrand-js/verification/deterministic-replay-verifying-results-after-the-fact.html)
+- [Commit-Reveal Scheme](https://blockrand-api.github.io/blockrand-js/verification/commit-reveal-schemes-explained-simply.html)
