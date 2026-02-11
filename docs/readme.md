@@ -36,3 +36,6 @@ Randomness matters more than most people realize — especially in gaming, lotte
 - [What Provably Fair Actually Means ?](https://blockrand-api.github.io/blockrand-js/verification/what-provably-fair-actually-means.html)
 - [Deterministic Replay Verification](https://blockrand-api.github.io/blockrand-js/verification/deterministic-replay-verifying-results-after-the-fact.html)
 - [Commit-Reveal Scheme](https://blockrand-api.github.io/blockrand-js/verification/commit-reveal-schemes-explained-simply.html)
+- [Commit-Revea Double-Blind Verification Scheme](https://blockrand-api.github.io/blockrand-js/verification/commit-reveal-and-double-blind-verification.html)
+- [Verify Randomness Without Trusting The Server](https://blockrand-api.github.io/blockrand-js/verification/verify-randomness-without-trusting-the-server.html)
+  
