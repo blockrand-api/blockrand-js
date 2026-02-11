@@ -38,4 +38,6 @@ Randomness matters more than most people realize — especially in gaming, lotte
 - [Commit-Reveal Scheme](https://blockrand-api.github.io/blockrand-js/verification/commit-reveal-schemes-explained-simply.html)
 - [Commit-Revea Double-Blind Verification Scheme](https://blockrand-api.github.io/blockrand-js/verification/commit-reveal-and-double-blind-verification.html)
 - [Verify Randomness Without Trusting The Server](https://blockrand-api.github.io/blockrand-js/verification/verify-randomness-without-trusting-the-server.html)
+- [Public Entropy Sources - What Counts and What Doesnt](https://blockrand-api.github.io/blockrand-js/verification/public-entropy-sources-what-counts-and-what-doesnt.html)
+- [Common Verification Failures and How Systems Get Caught](https://blockrand-api.github.io/blockrand-js/verification/common-verification-failures-and-how-systems-get-caught.html)
   
