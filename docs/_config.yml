@@ -2,4 +2,4 @@ url: "https://docs.blockrand.net"
 baseurl: ""
 title: "Verifiable Randomness Documentation"
 description: "Verifiable Randomness Systems"
-theme: jekyll-theme-cayman 
+theme: jekyll-theme-minimal 
