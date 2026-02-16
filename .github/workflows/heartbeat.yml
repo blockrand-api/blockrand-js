@@ -22,7 +22,7 @@ jobs:
             -H "Content-Type: application/json" \
             -d '{
               "player_id": "watchdog", 
-              "player_hash": "3962d3527771746f34f07a2267f57a39d893f0642f4c330df305d21271131105", 
+              "player_hash": "49f997970929235942484f90117b36f45a6c17822606540c4987f28243444093", 
               "delay_sec": 10
             }')
           
