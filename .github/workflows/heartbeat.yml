@@ -1,0 +1,62 @@
+name: API Heartbeat Watchdog
+on:
+  schedule:
+    - cron: '*/5 * * * *' # Runs every 5 minutes
+  workflow_dispatch:     
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Commit and Reveal Randomness
+        env:
+          API_KEY: ${{ secrets.WATCHDOG_API_KEY }}
+          API_URL: "https://api.blockrand.net/api/v1" 
+        run: |
+          echo "--- Starting Heartbeat ---"
+          
+          # 1. COMMIT
+          # Uses player_id 'watchdog' to follow your 'overwrite' rule
+          COMMIT_RES=$(curl -s -X POST "$API_URL/commit" \
+            -H "X-API-KEY: $API_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "player_id": "watchdog", 
+              "player_hash": "3962d3527771746f34f07a2267f57a39d893f0642f4c330df305d21271131105", 
+              "delay_sec": 10
+            }')
+          
+          echo "Commit Response: $COMMIT_RES"
+          TARGET_ROUND=$(echo $COMMIT_RES | jq -r '.target_round')
+
+          if [ "$TARGET_ROUND" == "null" ]; then
+            echo "Error: Failed to get target_round from API"
+            exit 1
+          fi
+
+          # 2. WAIT 
+          # We wait 15s to ensure Drand round is finalized and Cloud Task has fired
+          echo "Waiting 15s for Round $TARGET_ROUND..."
+          sleep 15
+
+          # 3. REVEAL
+          # The secret "watchdog_secret" matches the hash above
+          REVEAL_RES=$(curl -s -X POST "$API_URL/reveal" \
+            -H "X-API-KEY: $API_KEY" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"player_id\": \"watchdog\", 
+              \"player_secret\": \"watchdog_secret\", 
+              \"target_round\": $TARGET_ROUND
+            }")
+
+          echo "Reveal Response: $REVEAL_RES"
+          
+          # 4. VALIDATION
+          STATUS=$(echo $REVEAL_RES | jq -r '.status')
+          if [ "$STATUS" != "revealed" ]; then
+            echo "Heartbeat Failed: Expected 'revealed' but got '$STATUS'"
+            exit 1
+          fi
+          
+          echo "Heartbeat Successful!"
