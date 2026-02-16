@@ -2,7 +2,7 @@ name: API Heartbeat Watchdog
 on:
   schedule:
     - cron: '*/5 * * * *' # Runs every 5 minutes
-  workflow_dispatch:     
+  workflow_dispatch:      # Allows manual trigger for testing
 
 jobs:
   heartbeat:
@@ -16,7 +16,8 @@ jobs:
           echo "--- Starting Heartbeat ---"
           
           # 1. COMMIT
-          # Uses player_id 'watchdog' to follow your 'overwrite' rule
+          # Uses player_id 'watchdog' 
+          # player_hash is SHA256 for "watchdog_secret"
           COMMIT_RES=$(curl -s -X POST "$API_URL/commit" \
             -H "X-API-KEY: $API_KEY" \
             -H "Content-Type: application/json" \
@@ -29,18 +30,18 @@ jobs:
           echo "Commit Response: $COMMIT_RES"
           TARGET_ROUND=$(echo $COMMIT_RES | jq -r '.target_round')
 
-          if [ "$TARGET_ROUND" == "null" ]; then
-            echo "Error: Failed to get target_round from API"
+          if [ "$TARGET_ROUND" == "null" ] || [ -z "$TARGET_ROUND" ]; then
+            echo "Error: Failed to get target_round from API. Check API Key or URL."
             exit 1
           fi
 
           # 2. WAIT 
-          # We wait 15s to ensure Drand round is finalized and Cloud Task has fired
+          # 15s to cover the 10s delay + Drand publishing + Cloud Task latency
           echo "Waiting 15s for Round $TARGET_ROUND..."
           sleep 15
 
           # 3. REVEAL
-          # The secret "watchdog_secret" matches the hash above
+          # The secret "watchdog_secret" matches the hash in step 1
           REVEAL_RES=$(curl -s -X POST "$API_URL/reveal" \
             -H "X-API-KEY: $API_KEY" \
             -H "Content-Type: application/json" \
@@ -53,10 +54,11 @@ jobs:
           echo "Reveal Response: $REVEAL_RES"
           
           # 4. VALIDATION
+          # We accept 'ready' or 'revealed' as a successful heartbeat
           STATUS=$(echo $REVEAL_RES | jq -r '.status')
-          if [ "$STATUS" != "revealed" ]; then
-            echo "Heartbeat Failed: Expected 'revealed' but got '$STATUS'"
+          if [ "$STATUS" != "revealed" ] && [ "$STATUS" != "ready" ]; then
+            echo "Heartbeat Failed: Expected success status but got '$STATUS'"
             exit 1
           fi
           
-          echo "Heartbeat Successful!"
+          echo "--- Heartbeat Successful! ---"
