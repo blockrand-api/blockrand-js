@@ -1,8 +1,8 @@
 name: API Heartbeat Watchdog
 on:
   schedule:
-    - cron: '*/5 * * * *' # Runs every 5 minutes
-  workflow_dispatch:      # Allows manual trigger for testing
+    - cron: '*/5 * * * *'
+  workflow_dispatch:      
 
 jobs:
   heartbeat:
@@ -15,50 +15,46 @@ jobs:
         run: |
           echo "--- Starting Heartbeat ---"
           
-          # 1. COMMIT
-          # Uses player_id 'watchdog' 
-          # player_hash is SHA256 for "watchdog_secret"
+          # 1. GENERATE DYNAMIC SECRET & HASH (Like your JS code)
+          # We use a random string and hash it locally first
+          SECRET="wd_$(date +%s)_$RANDOM"
+          HASH=$(echo -n "$SECRET" | sha256sum | awk '{print $1}')
+          
+          echo "Generated Secret: $SECRET"
+          echo "Generated Hash: $HASH"
+
+          # 2. COMMIT
           COMMIT_RES=$(curl -s -X POST "$API_URL/commit" \
             -H "X-API-KEY: $API_KEY" \
             -H "Content-Type: application/json" \
-            -d '{
-              "player_id": "watchdog", 
-              "player_hash": "49f997970929235942484f90117b36f45a6c17822606540c4987f28243444093", 
-              "delay_sec": 10
-            }')
+            -d "{\"player_id\": \"watchdog\", \"player_hash\": \"$HASH\", \"delay_sec\": 10}")
           
           echo "Commit Response: $COMMIT_RES"
           TARGET_ROUND=$(echo $COMMIT_RES | jq -r '.target_round')
 
           if [ "$TARGET_ROUND" == "null" ] || [ -z "$TARGET_ROUND" ]; then
-            echo "Error: Failed to get target_round from API. Check API Key or URL."
+            echo "Error: Failed to get target_round"
             exit 1
           fi
 
-          # 2. WAIT 
-          # 15s to cover the 10s delay + Drand publishing + Cloud Task latency
-          echo "Waiting 15s for Round $TARGET_ROUND..."
-          sleep 15
+          # 3. WAIT 
+          # 20s to be safe for the 10s delay + Drand publishing
+          echo "Waiting 20s for Round $TARGET_ROUND..."
+          sleep 20
 
-          # 3. REVEAL
-          # The secret "watchdog_secret" matches the hash in step 1
+          # 4. REVEAL
           REVEAL_RES=$(curl -s -X POST "$API_URL/reveal" \
             -H "X-API-KEY: $API_KEY" \
             -H "Content-Type: application/json" \
-            -d "{
-              \"player_id\": \"watchdog\", 
-              \"player_secret\": \"watchdog_secret\", 
-              \"target_round\": $TARGET_ROUND
-            }")
+            -d "{\"player_id\": \"watchdog\", \"player_secret\": \"$SECRET\", \"target_round\": $TARGET_ROUND}")
 
           echo "Reveal Response: $REVEAL_RES"
           
-          # 4. VALIDATION
-          # We accept 'ready' or 'revealed' as a successful heartbeat
+          # 5. VALIDATION
           STATUS=$(echo $REVEAL_RES | jq -r '.status')
-          if [ "$STATUS" != "revealed" ] && [ "$STATUS" != "ready" ]; then
-            echo "Heartbeat Failed: Expected success status but got '$STATUS'"
+          if [[ "$STATUS" == "revealed" || "$STATUS" == "ready" ]]; then
+            echo "--- Heartbeat Successful! ---"
+          else
+            echo "Heartbeat Failed: Status is $STATUS"
             exit 1
           fi
-          
-          echo "--- Heartbeat Successful! ---"
