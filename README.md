@@ -1,5 +1,6 @@
-# blockrand.js
 [![API Heartbeat Watchdog](https://github.com/blockrand-api/blockrand-js/actions/workflows/heartbeat.yml/badge.svg?event=workflow_dispatch)](https://github.com/blockrand-api/blockrand-js/actions/workflows/heartbeat.yml)
+
+# blockrand.js
 
 Javascript SDK to generate Provably fair, time-locked randomness using double-blind entropy and Drand using Blockrand API.
 
