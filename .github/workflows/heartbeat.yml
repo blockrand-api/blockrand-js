@@ -1,7 +1,5 @@
 name: API Heartbeat Watchdog
 on:
-  schedule:
-    - cron: '*/5 * * * *'
   workflow_dispatch:      
 
 jobs:
