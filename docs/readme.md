@@ -92,7 +92,7 @@ If the local result matches the server's result, the game was fair. This section
 
 ## 🚀 Get Started
 
-Ready to implement verifiable randomness in your project? Check out the [blockrand-js](https://github.com/blockrand/blockrand-js) library on GitHub.
+Ready to implement verifiable randomness in your project? Check out the [blockrand-js](https://github.com/blockrand-api/blockrand-js) library on GitHub.
 
 ---
 
