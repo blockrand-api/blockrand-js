@@ -8,7 +8,7 @@ By combining cryptographic commit-reveal schemes, deterministic hashing, and ext
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
 1. [Core Concepts](#-core-concepts)
 2. [Advanced Theory](#-advanced-theory)
@@ -17,7 +17,7 @@ By combining cryptographic commit-reveal schemes, deterministic hashing, and ext
 
 ---
 
-## 📘 Core Concepts
+## Core Concepts 
 
 ### The Foundation of Trustless RNG
 
@@ -36,7 +36,7 @@ The following resources cover the essential vocabulary and the fundamental "why"
 
 ---
 
-## 🏗️ Advanced Theory
+## Advanced Theory 
 
 ### Architectural Models for Fairness
 
@@ -53,7 +53,7 @@ This section dives into the structural design of these systems. We discuss the n
 
 ---
 
-## 💻 The Algorithmic Suite
+## The Algorithmic Suite
 
 ### Implementation in Practice
 
@@ -72,7 +72,7 @@ The BlockRand library provides standardized algorithms for common use cases. The
 
 ---
 
-## 🛡️ Verification
+## Verification
 
 ### Empowering the End User
 
