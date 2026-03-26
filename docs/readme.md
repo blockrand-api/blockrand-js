@@ -10,10 +10,10 @@ By combining cryptographic commit-reveal schemes, deterministic hashing, and ext
 
 ## Table of Contents
 
-1. [Core Concepts](#-core-concepts)
-2. [Advanced Theory](#-advanced-theory)
-3. [The Algorithmic Suite](#-the-algorithmic-suite)
-4. [Verification Toolkit](#-verification)
+1. [Core Concepts](#core-concepts)
+2. [Advanced Theory](#advanced-theory)
+3. [The Algorithmic Suite](#the-algorithmic-suite)
+4. [Verification Toolkit](#verification)
 
 ---
 
